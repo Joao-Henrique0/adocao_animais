@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "228730546354",
+    "project_id": "animalsadoption-b6aae",
+    "storage_bucket": "animalsadoption-b6aae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228730546354:android:e359b7a4a81789e808c1ab",
+        "android_client_info": {
+          "package_name": "com.example.adocao_animais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228730546354-mk2gj0bbsk4ogor960l5e80679952a24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8dwfS8AohGwxhV9uYLeBH_D34ExpcpD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228730546354-mk2gj0bbsk4ogor960l5e80679952a24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:228730546354:android:5037741abf98be9608c1ab",
+        "android_client_info": {
+          "package_name": "com.example.app_adocao_animais"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "228730546354-34848trpr1qkt8o8ke9vhg85mmio9lh5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_adocao_animais",
+            "certificate_hash": "7b0e149f12232100ac26fbfe9d7b357f1be74505"
+          }
+        },
+        {
+          "client_id": "228730546354-mk2gj0bbsk4ogor960l5e80679952a24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8dwfS8AohGwxhV9uYLeBH_D34ExpcpD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "228730546354-mk2gj0bbsk4ogor960l5e80679952a24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
