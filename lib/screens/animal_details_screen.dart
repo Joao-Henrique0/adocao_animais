@@ -1,3 +1,4 @@
+import 'package:adocao_animais/utils/app_routes.dart';
 import 'package:adocao_animais/utils/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:adocao_animais/models/animal.dart';
@@ -39,19 +40,12 @@ class AnimalDetailsScreen extends StatelessWidget {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: const Text('Contate para adoção'),
-                              content: Text(
-                                  'Número de contato: ${animal.ownerContact}'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () => Navigator.of(context).pop(),
-                                  child: const Text('Fechar'),
-                                ),
-                              ],
-                            ),
+                          Navigator.of(context).pushNamed(
+                            AppRoutes.chat,
+                            arguments: {
+                              'ownerContact':
+                                  animal.ownerContact,
+                            },
                           );
                         },
                         child: const Text('Adotar'),

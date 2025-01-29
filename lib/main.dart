@@ -1,5 +1,6 @@
 import 'package:adocao_animais/models/animals_list.dart';
 import 'package:adocao_animais/screens/animal_details_screen.dart';
+import 'package:adocao_animais/screens/chat_page.dart';
 import 'package:adocao_animais/theme/theme_provider.dart';
 import 'package:adocao_animais/utils/app_routes.dart';
 import 'package:adocao_animais/utils/auth.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
             routes: {
               AppRoutes.home: (ctx) => const FeedScreen(),
               AppRoutes.details: (ctx) => const AnimalDetailsScreen(),
+              AppRoutes.chat: (ctx) => const ChatPage(),
             },
             debugShowCheckedModeBanner: false,
           );

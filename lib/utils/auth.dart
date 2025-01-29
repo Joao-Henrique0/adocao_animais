@@ -23,6 +23,7 @@ class Auth with ChangeNotifier {
         return;
       }
       currentUser = googleUser;
+      print(" -=#*& $currentUser  -=#*&");
 
       // Obtém as credenciais de autenticação do Google
       final GoogleSignInAuthentication googleAuth =
