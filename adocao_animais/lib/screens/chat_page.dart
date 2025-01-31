@@ -1,5 +1,5 @@
-import 'package:adocao_animais/componentes/messages.dart';
-import 'package:adocao_animais/componentes/new_message.dart';
+import 'package:adocao_animais/componentes/chat/messages.dart';
+import 'package:adocao_animais/componentes/chat/new_message.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -11,7 +11,7 @@ class ChatPage extends StatelessWidget {
     final ownerContact = arguments?['ownerContact'] ?? '';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Animal Chat'),
+        title: Text(ownerContact),
       ),
       body: SafeArea(
         child: Column(

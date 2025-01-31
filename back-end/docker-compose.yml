@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+  animals:
+    build: ./dockerfiles/python
+    container_name: animals
+    hostname: animals
+    restart: always
+    volumes:
+      - ./animals:/servico
+    command: python3 /servico/animals.py
+    ports:
+      - "5001:5000"
+    networks:
+      - app-network
+
+  chat:
+    build: ./dockerfiles/python
+    container_name: chat
+    hostname: chat
+    restart: always
+    volumes:
+      - ./chat:/servico
+    command: python3 /servico/chat.py
+    ports:
+      - "5002:5000"
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

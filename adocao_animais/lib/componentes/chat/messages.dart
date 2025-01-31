@@ -1,4 +1,4 @@
-import 'package:adocao_animais/componentes/message_bubble.dart';
+import 'package:adocao_animais/componentes/chat/message_bubble.dart';
 import 'package:adocao_animais/core/models/chat_message.dart';
 import 'package:adocao_animais/core/services/chat/chat_http_service.dart';
 import 'package:adocao_animais/utils/auth.dart';
