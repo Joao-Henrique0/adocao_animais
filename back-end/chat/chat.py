@@ -90,11 +90,8 @@ def handle_leave_chat(data):
     if chat_id in connected_clients and user_id in connected_clients[chat_id]:
         connected_clients[chat_id].remove(user_id)
         print(f"Usuário {user_id} saiu do chat {chat_id}")
-
-        # Notifica os outros usuários
         socketio.emit('user_left', {'chatId': chat_id, 'userId': user_id}, room=chat_id)
 
-    # Remove a sala se não houver mais usuários conectados
     if chat_id in connected_clients and not connected_clients[chat_id]:
         del connected_clients[chat_id]
 

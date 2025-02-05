@@ -1,9 +1,17 @@
 import unittest
 import requests
+from socketio import Client
 
 BASE_URL = "http://localhost:5002"
 
 class TestChat(unittest.TestCase):
+    
+    def setUp(self):
+        self.sio = Client()
+        self.sio.connect(BASE_URL)
+
+    def tearDown(self):
+        self.sio.disconnect()
     
     def test_01_get_messages(self):
         chat_id = "9988-7766"
@@ -24,5 +32,10 @@ class TestChat(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         self.assertIn("text", response.json())
 
+    def test_03_socket_join_chat(self):
+        self.sio.emit("join_chat", {"chatId": "9988-7766", "userId": "user321"})
+    
+    def test_04_socket_leave_chat(self):
+        self.sio.emit("leave_chat", {"chatId": "9988-7766", "userId": "user321"})
 if __name__ == "__main__":
     unittest.main()
