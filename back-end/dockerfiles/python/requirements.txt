@@ -3,3 +3,4 @@ flask_socketio
 flask-cors
 flask_socketio
 pymongo
+eventlet

@@ -21,8 +21,7 @@ class ChatWebSocketService {
   // Inicia o WebSocket e começa a emitir mensagens
   void connect(String chatId) {
     if (_socket?.connected ?? false) {
-      print('Já está conectado ao WebSocket');
-      return; // Impede que o WebSocket se reconecte
+      return;
     }
 
     _socket = io.io(socketUrl, <String, dynamic>{
@@ -32,10 +31,14 @@ class ChatWebSocketService {
 
     _socket?.connect();
 
-    _socket?.emit('join_chat', {'chatId': chatId, 'userId': user?.uid});
+    // Aguarde a conexão antes de emitir 'join_chat'
+    _socket?.on('connect', (_) {
+      _socket?.emit('join_chat', {'chatId': chatId, 'userId': user?.uid});
+    });
 
-    // Escuta por novas mensagens
+    // Escuta novas mensagens
     _socket?.on('new_message', (data) {
+      print('Nova mensagem recebida: $data');
       final newMessage = ChatMessage(
         id: data['_id'],
         text: data['text'],
@@ -46,10 +49,9 @@ class ChatWebSocketService {
         userImageUrl: data['userImageUrl'],
       );
 
-      // Verifica se a mensagem já não existe para evitar duplicação
       if (!_messages.any((msg) => msg.id == newMessage.id)) {
-        _messages.insert(0, newMessage); // Adiciona a nova mensagem
-        _controller.add(_messages); // Emite a lista de mensagens
+        _messages.insert(0, newMessage);
+        _controller.add(_messages);
       }
     });
   }
@@ -57,14 +59,13 @@ class ChatWebSocketService {
   // Desconecta o WebSocket
   // Desconecta o WebSocket corretamente
   Future<void> disconnect(String chatId) async {
-    if (_socket?.connected ?? false) {
+    if (_socket != null && (_socket?.connected ?? false)) {
       print('Enviando evento leave_chat para chatId: $chatId');
-      _socket?.emit('leave_chat', {
-        'chatId': chatId,
-        'userId': user?.uid
-      }); // Espera 0.5s para garantir envio
+      _socket?.emit('leave_chat', {'chatId': chatId, 'userId': user?.uid});
+
       _socket?.disconnect();
-      print('WebSocket desconectado');
+      _socket?.destroy();
+      _socket = null;
     }
   }
 
@@ -131,28 +132,6 @@ class ChatWebSocketService {
       );
     } else {
       throw Exception('Falha ao salvar mensagem');
-    }
-  }
-
-  Future<void> disconnectChat(String chatId) async {
-    final url = Uri.parse('$socketUrl/disconnect_chat');
-
-    try {
-      final response = await http.post(
-        url,
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode({'chatId': chatId, 'userId': user?.uid}),
-      );
-
-      if (response.statusCode == 200) {
-        print('Desconectado do chat com sucesso');
-        disconnect(
-            chatId); // Garante que o WebSocket é desconectado após a resposta
-      } else {
-        print('Falha ao desconectar do chat: ${response.body}');
-      }
-    } catch (e) {
-      print('Erro ao desconectar do chat: $e');
     }
   }
 }

@@ -17,7 +17,7 @@ class AnimalsList with ChangeNotifier {
   }
 
   Future<void> loadAnimals() async {
-    final url = Uri.parse('http://10.0.0.122:5001/animals?page=$_currentPage&itemsPerPage=$_itemsPerPage'); // Alterar para a URL do seu backend
+    final url = Uri.parse('http://10.0.0.122:5001/animals?page=$_currentPage&itemsPerPage=$_itemsPerPage');
 
     try {
       final response = await http.get(url);

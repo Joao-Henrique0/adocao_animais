@@ -93,7 +93,7 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Adote Seu Pet'),
-        actions: [ThemeButton(), LoginButton()],
+        actions: const [ThemeButton(), LoginButton()],
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Column(

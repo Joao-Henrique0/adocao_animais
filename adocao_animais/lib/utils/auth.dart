@@ -23,7 +23,6 @@ class Auth with ChangeNotifier {
         return;
       }
       currentUser = googleUser;
-      print(" -=#*& $currentUser  -=#*&");
 
       // Obtém as credenciais de autenticação do Google
       final GoogleSignInAuthentication googleAuth =
@@ -35,10 +34,7 @@ class Auth with ChangeNotifier {
       );
 
       // Faz login no Firebase com as credenciais do Google
-      final UserCredential userCredential =
-          await _firebaseAuth.signInWithCredential(credential);
-
-      print('Usuário autenticado: ${userCredential.user}');
+      await _firebaseAuth.signInWithCredential(credential);
     } catch (error) {
       print('Erro ao fazer login: $error');
     } finally {

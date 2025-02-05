@@ -25,7 +25,7 @@ class _MessagesState extends State<Messages> {
 
   @override
   void dispose() {
-    _chatService.disconnectChat(widget.chatId);
+    _chatService.disconnect(widget.chatId);
     super.dispose();
   }
 

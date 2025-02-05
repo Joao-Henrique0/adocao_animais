@@ -23,12 +23,6 @@ class TestChat(unittest.TestCase):
         response = requests.post(f"{BASE_URL}/messages", json=new_message)
         self.assertEqual(response.status_code, 201)
         self.assertIn("text", response.json())
-    
-    def test_03_disconnect_chat(self):
-        data = {"chatId": "12345"}
-        response = requests.post(f"{BASE_URL}/disconnect_chat", json=data)
-        self.assertEqual(response.status_code, 200)
-        self.assertIn("message", response.json())
 
 if __name__ == "__main__":
     unittest.main()
