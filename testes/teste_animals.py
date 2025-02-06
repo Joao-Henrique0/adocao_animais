@@ -14,7 +14,8 @@ class TestAnimals(unittest.TestCase):
     def test_02_add_animals(self):
         new_animals = [
             {
-                "name": "Rex",
+                "id": "1234",
+                "name": "Marlon",
                 "type": "Cachorro",
                 "breed": "Labrador",
                 "age": 3,
