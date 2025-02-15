@@ -28,7 +28,7 @@ services:
       - app-network
 
   mongo:
-    image: mongo:latest
+    image: mongo:4.4
     container_name: mongo-db
     ports:
       - "27017:27017"

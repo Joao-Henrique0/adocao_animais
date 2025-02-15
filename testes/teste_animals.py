@@ -14,19 +14,19 @@ class TestAnimals(unittest.TestCase):
     def test_02_add_animals(self):
         new_animals = [
             {
-                "id": "1234",
-                "name": "Marlon",
-                "type": "Cachorro",
-                "breed": "Labrador",
-                "age": 3,
-                "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/YellowLabradorLooking_new.jpg/640px-YellowLabradorLooking_new.jpg",
-                "description": "Um Labrador amigável",
-                "size": "Grande",
-                "location": "São Paulo",
-                "behavior": "Brincalhão",
+                "id": "5678",
+                "name": "Leo",
+                "type": "Primata",
+                "breed": "Mico-leão-dourado",
+                "age": 5,
+                "imageUrl": "https://static.todamateria.com.br/upload/mi/co/micoleao-cke.jpg",
+                "description": "Um mico-leão-dourado ágil e curioso",
+                "size": "Pequeno",
+                "location": "Curitiba, Brasil",
+                "behavior": "Ágil e social",
                 "health": "Saudável",
                 "specialNeeds": "",
-                "ownerContact": "1234-5678"
+                "ownerContact": "7744-9977"
             }
         ]
         response = requests.post(f"{BASE_URL}/animals", json=new_animals)
