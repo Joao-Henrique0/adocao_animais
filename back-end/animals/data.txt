@@ -1,3 +1,10 @@
+""""""""""""""""""""""""""
+Lembrando que na front-end nos arquivos "chat_http_service.dart" e no "animals_list" as urls tem que ser trocadas de acordo com sua rede
+sendo verificada no windows com "ipconfig" e no linux com "ifconfig" ou "ip a".
+""""""""""""""""""""""""""
+
+
+
 curl -X POST "http://localhost:5001/animals" \
      -H "Content-Type: application/json" \
      -d '[
